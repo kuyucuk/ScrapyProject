@@ -5,38 +5,33 @@ import sqlite3
 
 conn = sqlite3.connect('linkler.db')
 c = conn.cursor()
-
+eleman=0
+x=0
 
 
 class ToScrapeCSSSpider(scrapy.Spider):
     c.execute("CREATE TABLE IF NOT EXISTS stuffToPlot(link TEXT)")
 
-    c.execute('SELECT * FROM stuffToPlot')
+    c.execute('SELECT link FROM stuffToPlot')
     data = c.fetchall()
 
-
     name = "sneakers"
-    start_urls = [
 
-    ]
+    for row in data:
+        eleman = len(data)
 
-    start_urls = data
+    dizi = [1]
+    seri = dizi * (eleman)
+
+    for row in data:
+        seri[x]=row[0]
+        x=x+1
+
+    start_urls = seri
     print(start_urls)
+
     c.close()
     conn.close()
-
-    start_urls = [
-        ('https://www.sportscheck.com/nike-arrowz-sneaker-herren-p260419-F052/white-black/'),
-        'https://www.sportscheck.com/adidas-questar-byd-sneaker-herren-p280290-F040/core-black/',
-        'https://www.sportscheck.com/puma-basket-heart-patent-sneaker-damen-p266770-F004/marshmallow-marshmallow/',
-        'https://www.sportscheck.com/tom-tailor-boyfriend-jeans-damen-p277474-F007/mid-stone-wash-denim/',
-        'https://www.sportscheck.com/adidas-cf-lite-racer-cc-sneaker-herren-p280298-F052/ftwr-white/',
-        'https://www.sportscheck.com/nike-air-max-thea-sneaker-damen-p282416-F034/barely-rose/',
-        'https://www.sportscheck.com/nike-md-runner2-sneaker-herren-p282308-F041/black-black-white/',
-        'https://www.sportscheck.com/nike-internationalist-sneaker-damen-p282415-F034/particle-rose-vast-grey/',
-        'https://www.sportscheck.com/project-delray-wavey-sneaker-damen-p291470-F004/stone-dusty-pink/',
-        'https://www.sportscheck.com/reebok-trilux-sneaker-damen-p280049-F007/blau-rosa/'
-    ]
 
 
     def parse(self, response):
