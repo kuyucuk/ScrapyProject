@@ -25,7 +25,6 @@ class ToScrapeCSSSpider(scrapy.Spider):
     c.close()
     conn.close()
 
-
     start_urls = [
         ('https://www.sportscheck.com/nike-arrowz-sneaker-herren-p260419-F052/white-black/'),
         'https://www.sportscheck.com/adidas-questar-byd-sneaker-herren-p280290-F040/core-black/',
