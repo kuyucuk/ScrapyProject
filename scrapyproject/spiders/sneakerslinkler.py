@@ -10,9 +10,9 @@ c = conn.cursor()
 class MySpider(scrapy.Spider):
     name = "sneakerslinkler"
     start_urls = [
-        'https://www.sportscheck.com/schuhe/herren/',
+        #'https://www.sportscheck.com/schuhe/herren/',
         'https://www.sportscheck.com/s/sneakers/',
-        'https://www.sportscheck.com/badminton/'
+        #'https://www.sportscheck.com/badminton/'
     ]
 
     linksayisi = len(start_urls)
