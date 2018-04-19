@@ -33,7 +33,6 @@ class ToScrapeCSSSpider(scrapy.Spider):
     c.close()
     conn.close()
 
-
     def parse(self, response):
         with open("sneakers.txt", "a", encoding = "utf-8") as file:
             for marka in response.css("span.product__brand"):
