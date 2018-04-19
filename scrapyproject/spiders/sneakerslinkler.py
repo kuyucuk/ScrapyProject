@@ -23,9 +23,11 @@ class MySpider(scrapy.Spider):
 
             for hey in response.xpath("//html/body"):
                 liste = hey.xpath("//main/div[4]/div/div/div[3]/div/div[1]/a/@href").extract()
-                elemansayisi = (len(liste) + 1) * 2
+                elemansayisi = (len(liste) + 1) * self.linksayisi
+
             dizi = [1]
             links = dizi * (elemansayisi)
+
 
             for title in response.xpath("//html/body"):
 
