@@ -11,11 +11,13 @@ class MySpider(scrapy.Spider):
     name = "sneakerslinkler"
     start_urls = [
         'https://www.sportscheck.com/schuhe/herren/',
-        'https://www.sportscheck.com/s/sneakers/'
+        'https://www.sportscheck.com/s/sneakers/',
+        'https://www.sportscheck.com/badminton/'
     ]
 
     linksayisi = len(start_urls)
     print(linksayisi)
+    linksirasi = 1
 
     def parse(self, response):
 
@@ -25,18 +27,19 @@ class MySpider(scrapy.Spider):
                 liste = hey.xpath("//main/div[4]/div/div/div[3]/div/div[1]/a/@href").extract()
                 elemansayisi = (len(liste) + 1) * self.linksayisi
 
+
+
             dizi = [1]
             links = dizi * (elemansayisi)
-
 
             for title in response.xpath("//html/body"):
 
                 for x in range(1, elemansayisi):
-                    links[x] = title.xpath("//main/div[4]/div[" + str(x) + "]/div/div[3]/div/div[1]/a/@href").extract()[
-                        0]
-                    file.write(
-                        "________________________________________________________________________________________________________________________________")
-                    file.write("\n" + "link" + str(x) + ": " + str(links[x]) + "\n")
+                    links[x] = title.xpath("//main/div[4]/div[" + str(x) + "]/div/div[3]/div/div[1]/a/@href").extract()[0]
+                    file.write("________________________________________________________________________________________________________________________________")
+                    file.write("\n" + "link" + str(self.linksirasi) + ": " + str(links[x]) + "\n")
+
+                    self.linksirasi += 1
 
                     c.execute("CREATE TABLE IF NOT EXISTS stuffToPlot(link TEXT)")
 
