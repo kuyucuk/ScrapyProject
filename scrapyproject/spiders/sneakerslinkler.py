@@ -11,8 +11,40 @@ class MySpider(scrapy.Spider):
     name = "sneakerslinkler"
     start_urls = [
         #'https://www.sportscheck.com/schuhe/herren/',
-        'https://www.sportscheck.com/s/sneakers/',
         #'https://www.sportscheck.com/badminton/'
+        'https://www.sportscheck.com/s/sneakers/',
+        'https://www.sportscheck.com/s/sneakers/2',
+        'https://www.sportscheck.com/s/sneakers/3',
+        'https://www.sportscheck.com/s/sneakers/4',
+        'https://www.sportscheck.com/s/sneakers/5',
+        'https://www.sportscheck.com/s/sneakers/6',
+        'https://www.sportscheck.com/s/sneakers/7',
+        'https://www.sportscheck.com/s/sneakers/8',
+        'https://www.sportscheck.com/s/sneakers/9',
+        'https://www.sportscheck.com/s/sneakers/10',
+        'https://www.sportscheck.com/s/sneakers/11',
+        'https://www.sportscheck.com/s/sneakers/12',
+        'https://www.sportscheck.com/s/sneakers/13',
+        'https://www.sportscheck.com/s/sneakers/14',
+        'https://www.sportscheck.com/s/sneakers/15',
+        'https://www.sportscheck.com/s/sneakers/16',
+        'https://www.sportscheck.com/s/sneakers/17',
+        'https://www.sportscheck.com/s/sneakers/18',
+        'https://www.sportscheck.com/s/sneakers/18',
+        'https://www.sportscheck.com/s/sneakers/20',
+        'https://www.sportscheck.com/s/sneakers/21',
+        'https://www.sportscheck.com/s/sneakers/22',
+        'https://www.sportscheck.com/s/sneakers/23',
+        'https://www.sportscheck.com/s/sneakers/24',
+        'https://www.sportscheck.com/s/sneakers/25',
+        'https://www.sportscheck.com/s/sneakers/26',
+        'https://www.sportscheck.com/s/sneakers/27',
+        'https://www.sportscheck.com/s/sneakers/28',
+        'https://www.sportscheck.com/s/sneakers/28',
+        'https://www.sportscheck.com/s/sneakers/29',
+        'https://www.sportscheck.com/s/sneakers/30',
+        'https://www.sportscheck.com/s/sneakers/31',
+        'https://www.sportscheck.com/s/sneakers/32'
     ]
 
     linksayisi = len(start_urls)
