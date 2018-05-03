@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 #subprocess.check_output(['ls','-l']) #all that is technically needed...
-
+#Totokuyu
 os.system("scrapy crawl sneakerslinkler")
 os.system("scrapy crawl sneakers")
 os.system("python scrapyproject\spiders\wordchanger.py")
