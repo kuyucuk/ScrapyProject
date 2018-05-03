@@ -2,16 +2,17 @@
 import scrapy
 from scrapy import Selector
 import sqlite3
+import csv
+import os
 
-conn = sqlite3.connect('linkler.db')
+conn = sqlite3.connect('database.db')
 c = conn.cursor()
 
-connection = sqlite3.connect('products.db')
+connection = sqlite3.connect('database.db')
 cursor = connection.cursor()
 
 eleman = 0
 x = 0
-
 
 class ToScrapeCSSSpider(scrapy.Spider):
     c.execute("CREATE TABLE IF NOT EXISTS stuffToPlot(link TEXT)")
@@ -160,7 +161,7 @@ class ToScrapeCSSSpider(scrapy.Spider):
                 self.linksirasi) + ")*************************************************************************\n\n\n\n\n")
 
             cursor.execute('SELECT * FROM PRODUCTS')
-            cursor.execute("INSERT INTO PRODUCTS VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (str(yazar), str(yazar2), str(yazar3), str(yazar4), str(yazar5), str(yazar6), str(yazar7), str(yazar8), str(yazar9), str(yazar10), str(yazar11), str(yazar12)))
+            cursor.execute("INSERT INTO PRODUCTS VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (str(yazar), str(yazar2), str(yazar), str(yazar4), str(yazar5), str(yazar6), str(yazar7), str(yazar8), str(yazar9), str(yazar10), str(yazar11), str(yazar12)))
             connection.commit()
         self.linksirasi += 1
 

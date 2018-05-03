@@ -3,8 +3,9 @@ import scrapy
 from scrapy import Selector
 import sqlite3
 
-conn = sqlite3.connect('linkler.db')
+conn = sqlite3.connect('database.db')
 c = conn.cursor()
+c.execute("CREATE TABLE IF NOT EXISTS PRODUCTS(marka TEXT, model TEXT, cins TEXT, renk TEXT, numaralar TEXT, IMG_url TEXT, stok TEXT, url TEXT, ozelliker TEXT, aciklama TEXT, eski_fiyat TEXT, yeni_fiyat TEXT)")
 
 
 class MySpider(scrapy.Spider):
@@ -45,6 +46,7 @@ class MySpider(scrapy.Spider):
         'https://www.sportscheck.com/s/sneakers/30',
         'https://www.sportscheck.com/s/sneakers/31',
         'https://www.sportscheck.com/s/sneakers/32'
+
     ]
 
     linksayisi = len(start_urls)
@@ -56,7 +58,7 @@ class MySpider(scrapy.Spider):
         with open("sneakerslinkler.txt", "a", encoding="utf-8") as file:
 
             for hey in response.xpath("//html/body"):
-                liste = hey.xpath("//main/div[4]/div/div/div[3]/div/div[1]/a/@href").extract()
+                liste = hey.xpath("//main/div[5]/div/div/div[3]/div/div[1]/a/@href").extract()
                 elemansayisi = (len(liste) + 1) * self.linksayisi
 
 
@@ -67,7 +69,7 @@ class MySpider(scrapy.Spider):
             for title in response.xpath("//html/body"):
 
                 for x in range(1, elemansayisi):
-                    links[x] = title.xpath("//main/div[4]/div[" + str(x) + "]/div/div[3]/div/div[1]/a/@href").extract()[0]
+                    links[x] = title.xpath("//main/div[5]/div[" + str(x) + "]/div/div[3]/div/div[1]/a/@href").extract()[0]
                     file.write("________________________________________________________________________________________________________________________________")
                     file.write("\n" + "link" + str(self.linksirasi) + ": " + str(links[x]) + "\n")
 
